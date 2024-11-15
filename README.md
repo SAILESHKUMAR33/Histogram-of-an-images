@@ -31,7 +31,7 @@ The Histogram of gray scale image and color image is shown.
 #CODE:
 
 import cv2
-import numpy as np
+
 from matplotlib import pyplot as plt
 image = cv2.imread('asil.jpg')
 
@@ -43,22 +43,22 @@ equalized_image = cv2.equalizeHist(gray_image)
 
 plt.figure(figsize=(10, 7))
 
-plt.subplot(2, 2, 1)
+
 plt.imshow(gray_image, cmap='gray')
 plt.title('Original Grayscale Image')
 plt.axis('off')
 
-plt.subplot(2, 2, 2)
+
 plt.imshow(equalized_image, cmap='gray')
 plt.title('Equalized Image')
 plt.axis('off')
 
-plt.subplot(2, 2, 3)
+
 plt.plot(hist_original, color='black')
 plt.title('Original Histogram')
 plt.xlim([0, 256])
 
-plt.subplot(2, 2, 4)
+
 hist_equalized = cv2.calcHist([equalized_image], [0], None, [256], [0, 256])
 plt.plot(hist_equalized, color='black')
 plt.title('Equalized Histogram')
